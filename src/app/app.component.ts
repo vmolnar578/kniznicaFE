@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+enum MENU { USERS, BOOKS, BORROWINGS}
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kniznicaFE';
+  aktMenu: MENU = MENU.USERS;
+  menu = MENU;
 }
