@@ -1,0 +1,16 @@
+<div class="center">
+  <div class="container">
+    <div class="menu">
+      <a (click)="selectMenu(menu.USERS)">Users</a>
+      <a (click)="selectMenu(menu.BOOKS)">Books</a>
+      <a (click)="selectMenu(menu.BORROWINGS)">Borrowings</a>
+    </div>
+    <hr>
+    <br><br>
+    <main>
+      <router-outlet>
+      </router-outlet>
+      <br>
+    </main>
+  </div>
+</div>
