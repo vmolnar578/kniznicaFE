@@ -12,6 +12,7 @@
   width: 60%;
 }
 .menu a {
+  cursor: pointer;
   font-size: 1.5rem;
   color: #754808;
   text-decoration: none;
@@ -34,37 +35,9 @@
   font-size: 1.2rem;
 }
 main {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 main div {
   line-height: 3rem;
 }
-button {
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  font-weight: lighter;
-  color: rgba(255, 255, 255, 0.9);
-  text-transform: uppercase;
-  background: rgba(96, 48, 8, 0.76);
-  border-radius: 15px;
-  box-shadow: rgba(227, 134, 13, 0.56) 0px 0px 15px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  margin: 10px;
-}
-button:hover {
-  font-size: 1.25rem;
-}
-input[type=text] {
-  padding: 15px;
-  margin-bottom: 15px;
-  margin-left: 10px;
-  border-radius: 5px;
-  border: none;
-  box-shadow: #754f08 0 0 5px;
-}
-.list {
-  line-height: normal !important;
-  text-align: center;
-}
+

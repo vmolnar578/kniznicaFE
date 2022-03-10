@@ -1,49 +1,16 @@
 <div class="center">
   <div class="container">
     <div class="menu">
-      <a href="#" (click)="aktMenu = menu.USERS">Users</a>
-      <a href="#" (click)="aktMenu = menu.BOOKS">Books</a>
-      <a href="#" (click)="aktMenu = menu.BORROWINGS">Borrowings</a>
+      <a (click)="selectMenu(menu.USERS)">Users</a>
+      <a (click)="selectMenu(menu.BOOKS)">Books</a>
+      <a (click)="selectMenu(menu.BORROWINGS)">Borrowings</a>
     </div>
     <hr>
     <br><br>
     <main>
-      <div *ngIf="aktMenu == menu.USERS">
-        ID: <input type="text" [(ngModel)]="user.id"><br>
-        Name: <input type="text" [(ngModel)]="user.name"><br>
-        Contact: <input type="text" [(ngModel)]="user.contact"><br>
-        <button (click)="addUser()">Add</button>
-        <br>
-        List of users:
-        <div class="list" *ngFor="let u of users">
-          id: {{u.id}} <br> name: {{u.name}} <br> contact: {{u.contact}} <br><br>
-        </div>
-      </div>
-
-      <div *ngIf="aktMenu == menu.BOOKS">
-        ID: <input type="text" [(ngModel)]="book.id"><br>
-        Name: <input type="text" [(ngModel)]="book.name"><br>
-        Author: <input type="text" [(ngModel)]="book.author"><br>
-        Available: <input type="text" [(ngModel)]="book.available"><br>
-        <button (click)="addBook()">Add</button>
-        <br>
-        List of books:
-        <div class="list" *ngFor="let b of books">
-          id: {{b.id}} <br> name: {{b.name}} <br> author: {{b.author}} <br> available: {{b.available}} <br><br>
-        </div>
-      </div>
-
-      <div *ngIf="aktMenu == menu.BORROWINGS">
-        ID: <input type="text" [(ngModel)]="borrowing.id"><br>
-        Book: <input type="text" [(ngModel)]="borrowing.book"><br>
-        User: <input type="text" [(ngModel)]="borrowing.user"><br>
-        <button (click)="addBorrowing()">Add</button>
-        <br>
-        List of borrowings:
-        <div class="list" *ngFor="let b of borrowings">
-          id: {{b.id}} <br> book: {{b.book}} <br> user: {{b.user}} <br><br>
-        </div>
-      </div>
+      <router-outlet>
+      </router-outlet>
+      <br>
     </main>
   </div>
 </div>

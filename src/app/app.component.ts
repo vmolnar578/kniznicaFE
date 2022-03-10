@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 enum MENU { USERS, BOOKS, BORROWINGS}
 
 @Component({
@@ -8,10 +9,13 @@ enum MENU { USERS, BOOKS, BORROWINGS}
 })
 export class AppComponent {
   title = 'kniznicaFE';
-  aktMenu: MENU = MENU.USERS;
   menu = MENU;
-
-  users: any = [];
+  constructor(private router: Router) {
+  }
+  ngOnInit() {
+    this.router.navigate(['/users']);
+  }
+  /*  users: any = [];
   user = {id: '', name: '', contact: ''};
   addUser() {
     this.users.push({
@@ -20,7 +24,7 @@ export class AppComponent {
       contact: this.user.contact
     })
   }
- 
+
   books: any = [];
   book = {id: '', name: '', author: '', available: ''};
   addBook() {
@@ -31,7 +35,7 @@ export class AppComponent {
       available: this.book.available
     });
   }
- 
+
   borrowings: any = [];
   borrowing = {id: '', book: '', user: ''};
   addBorrowing() {
@@ -40,5 +44,16 @@ export class AppComponent {
       book: this.borrowing.book,
       user: this.borrowing.user
     });
+  }*/
+  public selectMenu(m: MENU) {
+    if (m == MENU.USERS) {
+      this.router.navigate(['/users']);
+    }
+    if (m == MENU.BOOKS) {
+      this.router.navigate(['/books']);
+    }
+    if (m == MENU.BORROWINGS) {
+      this.router.navigate(['/borrowings']);
+    }
   }
 }
