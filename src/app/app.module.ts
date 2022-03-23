@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BooksFormComponent } from './books-form/books-form.component';
 import { BooksPageComponent } from './books-page/books-page.component';
 import { BooksListComponent } from './books-list/books-list.component';
@@ -28,12 +28,13 @@ import { AppRoutingModule } from './app-routing.module';
     UsersListComponent,
     UsersPageComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        RouterModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
