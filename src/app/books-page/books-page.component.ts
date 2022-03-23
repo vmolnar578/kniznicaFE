@@ -1,6 +1,5 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Book} from "../models/book.model";
-import {User} from "../models/user.model";
 
 @Component({
   selector: 'app-books-page',
@@ -9,11 +8,28 @@ import {User} from "../models/user.model";
 })
 export class BooksPageComponent implements OnInit {
   constructor() { }
-  @Output()books: Book[] = [];
+  books: Book[] = [];
+  bookEdit?: Book;
   ngOnInit(): void {
   }
-  public pushBook($event: Book) {
-    let book = new Book($event)
+  public pushBook(book: Book): void {
     this.books.push(book);
+  }
+  editBook(book: Book): void {
+    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
+    if (index !== -1) {
+      this.books[index] = book;
+    }
+  }
+
+  editBookFromList(book: Book): void {
+    this.bookEdit = book;
+  }
+
+  deleteBookFromList(book: Book): void {
+    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
+    if (index !== -1) {
+      this.books.splice(index, 1);
+    }
   }
 }
