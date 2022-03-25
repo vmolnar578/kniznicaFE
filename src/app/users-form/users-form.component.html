@@ -1,0 +1,8 @@
+<div>
+  <form [formGroup]="userForm">
+  ID: <input type="number" formControlName="id"><br>
+  Name: <input type="text" formControlName="firstname" placeholder="Firstname"> <input type="text" formControlName="lastname" placeholder="Lastname"><br>
+  Contact: <input type="text" formControlName="contact"><br>
+  <button (click)="addUser()">Add user</button>
+  </form>
+</div>
