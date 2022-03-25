@@ -1,2 +1,2 @@
-<app-books-form [book]="bookEdit" (bookEmitter)="pushBook($event)" (editBookEmitter)="editBook($event)"></app-books-form>
+<app-books-form [book]="bookEditing" (bookEmitter)="pushBook($event)" (editBookEmitter)="editBook($event)"></app-books-form>
 <app-books-list [books]="books" (editBook)="editBookFromList($event)" (deleteBook)="deleteBookFromList($event)"></app-books-list>

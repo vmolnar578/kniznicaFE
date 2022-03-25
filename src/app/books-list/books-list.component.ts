@@ -7,10 +7,10 @@ import {Book} from "../models/book.model";
   styleUrls: ['./books-list.component.css']
 })
 export class BooksListComponent implements OnInit {
-  @Input()books: Book[] = [];
+  @Input()
+  books: Book[] = [];
   @Output()
   editBook: EventEmitter<Book> = new EventEmitter<Book>();
-
   @Output()
   deleteBook: EventEmitter<Book> = new EventEmitter<Book>();
   edit(book: Book): void {

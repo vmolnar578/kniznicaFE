@@ -3,7 +3,7 @@
   Name: <input type="text" formControlName="name"><br>
   Author: <input type="text" formControlName="author"><br>
   Available: <input type="text" formControlName="available"><br>
-  </form>
   <button (click)="addBook()" *ngIf="bookForm.value.id === null">Add</button>
   <button (click)="editBook()" *ngIf="bookForm.value.id !== null">Edit</button>
+  </form>
 </div>
