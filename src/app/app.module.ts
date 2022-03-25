@@ -14,6 +14,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UsersPageComponent } from './users-page/users-page.component';
 import {RouterModule} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
         FormsModule,
         RouterModule,
         AppRoutingModule,
+        HttpClientModule,
         ReactiveFormsModule
     ],
   providers: [],

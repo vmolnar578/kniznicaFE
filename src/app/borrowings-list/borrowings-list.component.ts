@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Borrowing} from "../models/borrowing.model";
 
 @Component({
   selector: 'app-borrowings-list',
@@ -6,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./borrowings-list.component.css']
 })
 export class BorrowingsListComponent implements OnInit {
-  @Input()borrowings: any = [];
+  @Input()borrowings: Borrowing[] = [];
   constructor() { }
 
   ngOnInit(): void {

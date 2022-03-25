@@ -1,9 +1,10 @@
 <div>
   <form [formGroup]="bookForm">
-  Name: <input type="text" formControlName="name"><br>
-  Author: <input type="text" formControlName="author"><br>
-  Available: <input type="text" formControlName="available"><br>
-  <button (click)="addBook()" *ngIf="bookForm.value.id === null">Add</button>
-  <button (click)="editBook()" *ngIf="bookForm.value.id !== null">Edit</button>
+  Title: <input type="text" formControlName="title"><br>
+  Isbn: <input type="text" formControlName="isbn"><br>
+  Author: <input type="text" formControlName="authorFirstname" placeholder="Firstname"> <input type="text" formControlName="authorLastname" placeholder="Lastname"><br>
+  Available: <input type="text" formControlName="count"><br>
+  <button (click)="addBook()" *ngIf="bookForm.value.id === null">Add book</button>
+  <button (click)="editBook()" *ngIf="bookForm.value.id !== null">Edit book</button>
   </form>
 </div>
