@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Book} from "../models/book.model";
+import {BooksService} from "../../books.service";
 
 @Component({
   selector: 'app-books-page',
@@ -7,19 +8,26 @@ import {Book} from "../models/book.model";
   styleUrls: ['./books-page.component.css']
 })
 export class BooksPageComponent implements OnInit {
-  constructor() { }
+  constructor(private booksService: BooksService) { }
   books: Book[] = [];
   bookEditing?: Book;
   ngOnInit(): void {
+    this.refresh();
   }
-  public pushBook(book: Book): void {
-    this.books.push(book);
+  refresh(): void {
+    this.booksService.getBooks().subscribe(b => {
+      this.books = b;
+    });
+  }
+  pushBook(book: Book): void {
+    this.booksService.createBook(book).subscribe( () => {
+      this.refresh();
+    });
   }
   editBook(book: Book): void {
-    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
-    if (index !== -1) {
-      this.books[index] = book;
-    }
+    this.booksService.updateBook(book.id, book).subscribe( () => {
+      this.refresh();
+    });
   }
 
   editBookFromList(book: Book): void {
@@ -27,9 +35,8 @@ export class BooksPageComponent implements OnInit {
   }
 
   deleteBookFromList(book: Book): void {
-    const index = this.books.findIndex(bookArray => bookArray.id === book.id);
-    if (index !== -1) {
-      this.books.splice(index, 1);
-    }
+    this.booksService.deleteBook(book.id).subscribe( () => {
+      this.refresh();
+    });
   }
 }

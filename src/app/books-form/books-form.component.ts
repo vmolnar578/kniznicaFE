@@ -20,18 +20,22 @@ export class BooksFormComponent implements OnInit {
   constructor() {
     this.bookForm = new FormGroup({
       id: new FormControl(null),
-      name: new FormControl(null),
-      author: new FormControl(null),
-      available: new FormControl(null)
+      title: new FormControl(null),
+      isbn: new FormControl(null),
+      authorLastname: new FormControl(null),
+      authorFirstname: new FormControl(null),
+      count: new FormControl(null)
     });
   }
 
   public addBook() {
     this.bookEmitter.emit({
-      id: Math.round(Math.random() * 500).toString(),
-      name: this.bookForm.value.name,
-      author: this.bookForm.value.author,
-      available: this.bookForm.value.available});
+      id: this.bookForm.value.id,
+      title: this.bookForm.value.title,
+      authorFirstname: this.bookForm.value.authorFirstname,
+      authorLastname: this.bookForm.value.authorLastname,
+      isbn: this.bookForm.value.isbn,
+      count: this.bookForm.value.count});
     this.bookForm.reset();
   }
   public editBook(): void {

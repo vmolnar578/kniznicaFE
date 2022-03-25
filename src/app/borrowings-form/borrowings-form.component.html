@@ -1,6 +1,8 @@
 <div>
-  ID: <input type="text" [(ngModel)]="borrowing.id"><br>
-  Book: <input type="text" [(ngModel)]="borrowing.book"><br>
-  User: <input type="text" [(ngModel)]="borrowing.user"><br>
+  <form [formGroup]="borrowingForm">
+  ID: <input type="number" formControlName="id"><br>
+  BookID: <input type="number" formControlName="bookId"><br>
+  UserID: <input type="number" formControlName="customerId"><br>
   <button (click)="addBorrowing()">Add borrowing</button>
+  </form>
 </div>
