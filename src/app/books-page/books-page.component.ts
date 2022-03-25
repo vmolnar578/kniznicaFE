@@ -9,7 +9,7 @@ import {Book} from "../models/book.model";
 export class BooksPageComponent implements OnInit {
   constructor() { }
   books: Book[] = [];
-  bookEdit?: Book;
+  bookEditing?: Book;
   ngOnInit(): void {
   }
   public pushBook(book: Book): void {
@@ -23,7 +23,7 @@ export class BooksPageComponent implements OnInit {
   }
 
   editBookFromList(book: Book): void {
-    this.bookEdit = book;
+    this.bookEditing = book;
   }
 
   deleteBookFromList(book: Book): void {

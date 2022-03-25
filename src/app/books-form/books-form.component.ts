@@ -10,8 +10,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class BooksFormComponent implements OnInit {
   bookForm: FormGroup;
   @Input()
-  set book(b: Book) {
-    if (b) { this.fillFormGroup(b); }
+  set book(b: Book | undefined) {
+    if (b) { this.bookForm.setValue(b); }
   }
   @Output() bookEmitter = new EventEmitter<Book>();
   ngOnInit(): void {
@@ -25,16 +25,10 @@ export class BooksFormComponent implements OnInit {
       available: new FormControl(null)
     });
   }
-  private fillFormGroup(book: Book) {
-    this.bookForm.controls['id'].setValue(book.id);
-    this.bookForm.controls['name'].setValue(book.name);
-    this.bookForm.controls['author'].setValue(book.author);
-    this.bookForm.controls['available'].setValue(book.available);
-  }
 
   public addBook() {
     this.bookEmitter.emit({
-      id: Math.random().toString(),
+      id: Math.round(Math.random() * 500).toString(),
       name: this.bookForm.value.name,
       author: this.bookForm.value.author,
       available: this.bookForm.value.available});
