@@ -1,5 +1,6 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {User} from "../models/user.model";
+import {UsersService} from "../../users.service";
 
 @Component({
   selector: 'app-users-page',
@@ -7,12 +8,18 @@ import {User} from "../models/user.model";
   styleUrls: ['./users-page.component.css']
 })
 export class UsersPageComponent implements OnInit {
-  constructor() { }
-  @Output()users: User[] = [];
+  constructor(private usersService: UsersService) { }
+  users: User[] = [];
   ngOnInit(): void {
   }
-  public pushUser($event: User) {
-    let user = new User($event)
-    this.users.push(user);
+  refresh() {
+    this.usersService.getCustomers().subscribe( u => {
+      this.users = u;
+    });
+  }
+  public pushUser(user: User) {
+    this.usersService.createCustomer(user).subscribe( () => {
+      this.refresh();
+    });
   }
 }
