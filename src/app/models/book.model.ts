@@ -1,13 +1,17 @@
 export class Book{
-  id?:string;
-  name:string;
-  author:string;
-  available:string;
+  id?:number;
+  title:string;
+  isbn:string;
+  authorLastname:string;
+  authorFirstname:string;
+  count:number;
 
   constructor(book: Book) {
     this.id = book.id;
-    this.name = book.name;
-    this.author = book.author;
-    this.available = book.available;
+    this.title = book.title;
+    this.authorFirstname = book.authorFirstname;
+    this.authorLastname = book.authorLastname;
+    this.count = book.count;
+    this.isbn = book.isbn;
   }
 }

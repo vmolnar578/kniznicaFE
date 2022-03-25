@@ -1,11 +1,11 @@
 export class Borrowing{
-  id:string;
-  book:string;
-  user:string;
+  id:number;
+  bookId:number;
+  customerId:number;
 
   constructor(borrowing:Borrowing) {
     this.id = borrowing.id;
-    this.book = borrowing.book;
-    this.user = borrowing.user;
+    this.bookId = borrowing.bookId;
+    this.customerId = borrowing.customerId;
   }
 }

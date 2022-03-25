@@ -1,7 +1,7 @@
 <div>
 List of books:
 <div class="list" *ngFor="let b of books">
-  id: {{b.id}} <br> name: {{b.name}} <br> author: {{b.author}} <br> available: {{b.available}}<br>
+  id: {{b.id}} <br> name: {{b.title}} <br> isbn: {{b.isbn}} <br> author: {{b.authorFirstname}} {{b.authorLastname}} <br> available: {{b.count}}<br>
   <button (click)="edit(b)">Edit</button>
   <button (click)="delete(b)">Delete</button>
   <br><br>
